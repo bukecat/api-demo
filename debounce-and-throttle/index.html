@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>goodgoodstudy</title>
+</head>
+<body>
+
+<button class="test-btn">debounce</button>
+
+<script type="module">
+  import { debounce } from './index';
+
+  const func = () => {
+    console.log('debounce');
+  };
+
+  document.querySelector('.test-btn').addEventListener('click', debounce(func, 1000, false));
+</script>
+
+</body>
+</html>
