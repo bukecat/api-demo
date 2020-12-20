@@ -1,1 +1,1 @@
-# js api polyfill
+# js api learn, or polyfill some api
