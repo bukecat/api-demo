@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+</head>
+<body>
+<script>
+  function myNew(f) {
+    const obj = {};
+    obj.__proto__ = f.prototype;
+    const newF = f.apply(obj);
+
+    return newF instanceof Object ? newF : obj;
+  }
+  function f() {
+    return f;
+  }
+  const a = myNew(f);
+  console.log(a instanceof f);
+</script>
+</body>
+</html>

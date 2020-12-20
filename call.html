@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>call</title>
+</head>
+<body>
+<div id="example"></div>
+
+<script>
+  Function.prototype.myCall = function (content) {
+
+    if (typeof this !== 'function') {
+      throw new Error();
+    }
+
+    content = content || window;
+
+    content.fn = this;
+
+    content.fn(...[...arguments].slice(1));
+
+    delete content.fn;
+
+    return content;
+  };
+
+  const objA = {
+    name: 'objA',
+    cons() {
+      console.log(arguments.toString());
+      console.log(this.name);
+    },
+    cons2: ''
+  };
+
+  const objB = {
+    name: 'objB'
+  };
+
+  objA.cons();
+  objA.cons.myCall(objB, 1, 2, 3);
+
+</script>
+</body>
+</html>
