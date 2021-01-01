@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>apply</title>
+</head>
+<body>
+
+<script src="./call.js"></script>
+<script src="./apply.js"></script>
+<script src="./bind.js"></script>
+
+<script>
+  const objA = {
+    name: 'objA',
+    cons() {
+      console.log('4:',arguments);
+      console.log('5:',[...arguments]);
+      return this;
+    },
+    cons2: ''
+  };
+
+  const objB = {
+    name: 'objB'
+  };
+
+  // console.log('---"0"---')
+  // console.log(objA.cons.apply('0', [123]));
+  // console.log(objA.cons.myApply('0', [123]));
+  // console.log('---0---')
+  // console.log(objA.cons.apply(0, [123]));
+  // console.log(objA.cons.myApply(0, [123]));
+  // console.log('---undefined---')
+  // console.log(objA.cons.apply());
+  // console.log(objA.cons.myApply());
+  // console.log('---null---')
+  // console.log(objA.cons.apply(null));
+  // console.log(objA.cons.myApply(null));
+  // console.log('---funciton---')
+  // console.log(objA.cons.apply(function () {}));
+  // console.log(objA.cons.myApply(function () {}));
+  // console.log('---symbol---')
+  // console.log(objA.cons.apply(Symbol()));
+  // console.log(objA.cons.myApply(Symbol()));
+  // console.log('---boolean---')
+  // console.log(objA.cons.apply(false));
+  // console.log(objA.cons.myApply(false));
+
+
+  console.log(objA.cons.bind(objB)(123));
+  console.log(objA.cons.myBind(objB)(123));
+</script>
+</body>
+</html>
